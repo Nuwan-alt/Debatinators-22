@@ -1,0 +1,10 @@
+.proname{
+    font-family: 'Redressed', cursive;
+    font-size: 70px;
+    padding: 20px;
+
+    background: linear-gradient(to right, #070707 10%, #f8cc07 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    
+}
