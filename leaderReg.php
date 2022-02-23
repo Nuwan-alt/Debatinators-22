@@ -25,26 +25,33 @@
 
     <!-- Main CSS-->
     <link rel="stylesheet" href="assets/css/regForm.css">
+    <link rel="stylesheet" href="assets/css/notify.css">
 </head>
 
 <body>
     <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
         <div class="wrapper wrapper--w680">
+        
             <div class="card card-4">
+                <div class="text-center"> <div id="note" > <b> Notification message  </b> </div></div>
+            
                 <div class="card-body">
+                
                     <h2 class="title">Registration Form (Team Leader)</h2>
+                    
                     <form method="POST" action="process.php">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">first name</label>
-                                    <input class="input--style-4" type="text" name="first_name">
+                                    
+                                    <input class="input--style-4" type="text" name="first_name" id="fname">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">last name</label>
-                                    <input class="input--style-4" type="text" name="last_name">
+                                    <input class="input--style-4" type="text" name="last_name" id="lname">
                                 </div>
                             </div>
                         </div>
@@ -53,7 +60,7 @@
                                 <div class="input-group">
                                     <label class="label">Birthday</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="date" name="birthday">
+                                        <input class="input--style-4 js-datepicker" type="date" name="birthday" id="bday">
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                     </div>
                                 </div>
@@ -63,11 +70,11 @@
                                     <label class="label">Gender</label>
                                     <div class="p-t-10">
                                         <label class="radio-container m-r-45">Male
-                                            <input type="radio" checked="checked" name="gender" value="male">
+                                            <input type="radio" checked="checked" name="gender" value="Male" id="male">
                                             <span class="checkmark"></span>
                                         </label>
                                         <label class="radio-container">Female
-                                            <input type="radio" name="gender" value="female">
+                                            <input type="radio" name="gender" value="Female" id="female">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -78,13 +85,13 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Email</label>
-                                    <input class="input--style-4" type="email" name="email">
+                                    <input class="input--style-4" type="email" name="email" id="email">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Phone Number</label>
-                                    <input class="input--style-4" type="text" name="phone">
+                                    <input class="input--style-4" type="text" name="phone" id="phone">
                                 </div>
                             </div>
                         </div>
@@ -92,14 +99,14 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">NIC Number</label>
-                                    <input class="input--style-4" type="text" name="nic">
+                                    <input class="input--style-4" type="text" name="nic" id="nic">
                                 </div>
                             </div>
                             <div class="col-2">
                                
                                 <div class="input-group">
                                     <label class="label">University</label>
-                                    <input class="input--style-4" type="text" name="university">
+                                    <input class="input--style-4" type="text" name="university" id="uni">
                                 </div>
                             </div>
 
@@ -121,7 +128,7 @@
                         </div>
                         
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit" name="submit">Next</button>
+                            <button class="btn btn--radius-2 btn--blue" type="submit" name="submit" onclick="return   nameValfirst() && nameVallast() && mobileVal() && dateVali() && emailVal() && doCalculate() && uniVali()">Next</button>
                         </div>
                     </form>
                 </div>
@@ -138,6 +145,7 @@
 
     <!-- Main JS-->
     <script src="./assets/js/global.js"></script>
+    <script src="./assets/js/notify.js"></script>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
