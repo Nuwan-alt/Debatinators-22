@@ -1,3 +1,4 @@
+<?php include_once 'dbCon.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,23 +25,42 @@
         <table class="table table-hover">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col"></th>
+                    <th scope="col" style='display:none'></th>
                     <th scope="col">University</th>
                     <th scope="col">Team Leader</th>
+                    <th scope="col">NIC</th>
                     <th scope="col">Delete</th>
                     <th scope="col">View</th>
 
                 </tr>
             </thead>
 
+            
+
             <tbody>
-                <tr>
-                    <th scope="row"> </th>
-                    <td> UoM</td>
-                    <td>Nuwan Jayasanka</td>
-                    <td><button type="button" class="btn btn-danger"> Delete</button></td>
-                    <td><button type="button" class="btn btn-success">Success</button></td>
-                </tr>
+
+            <?php 
+            $stmt = "SELECT * FROM teammembers";
+            $result = $conn->query($stmt);
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                if($row['TLnic'] == $row['nic']){
+                    echo"<tr>";
+                    echo"<th scope='row' style='display:none' >". $row['TLnic'] . "</th>";
+                    echo"<th scope='row'>". $row['university'] . "</th>";
+                    echo"<td>". $row['firstName'] .' '.$row['lastname']. "</td>";
+                    echo"<td>". $row['nic'] . "</td>";
+                    echo"<td><button type='button' class='btn btn-danger'> Delete</button></td>";
+                    echo"<td> <a href='{Debatinators%2022'}/view.php/'> <button type='button' class='btn btn-success' type='submit' name='teamView' > View</button></a>  </td>";
+                    
+                    echo"</tr>";
+                }
+             } }
+
+             
+            ?>
+                
             </tbody>
         </table>
     </div>

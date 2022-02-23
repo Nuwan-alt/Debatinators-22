@@ -9,20 +9,28 @@
 	    $phone_number = $_POST['phone'];
         $nic = $_POST['nic'];
 	    $university = $_POST['university'];
+        $tlnic = $_POST['tlnic'];
+        $member = $_POST['member'];
     }
 
     $stmt =$conn->prepare ("INSERT INTO teammembers (TLnic,nic,firstName,lastName,birthday,gender,email,phonenumber,university)
     VALUES (?,?,?,?,?,?,?,?,?)");
     
-    if (isset($_GET['abc'])){
-        $TLnic = $_GET['tlnic'];
-        $stmt->bind_param("sssssssss",$TLnic,$nic,$first_name,$last_name,$birthday,$gender,$email,$phone_number,$university);
+    if ($tlnic != 0){
+
+        $stmt->bind_param("sssssssss",$tlnic,$nic,$first_name,$last_name,$birthday,$gender,$email,$phone_number,$university);
         $stmt->execute();
-        header("Location: ../Debatinators%2022'/mem2Reg.php?tlnic=$TLnic");
+        if($member == 4){
+            header("Location:../Debatinators%2022'/ ");
+        }else{
+            $direct =$member+1;
+            header("Location: ../Debatinators%2022'/mem"."$direct"."Reg.php?TLnic=$tlnic");
+        }
+        
     }else{
         $stmt->bind_param("sssssssss",$nic,$nic,$first_name,$last_name,$birthday,$gender,$email,$phone_number,$university);
         $stmt->execute();
-        header("Location: ../Debatinators%2022'/mem1Reg.php?abc=$nic");
+        header("Location: ../Debatinators%2022'/mem1Reg.php?TLnic=$nic");
     }
     
 

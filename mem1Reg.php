@@ -102,6 +102,20 @@
                                     <input class="input--style-4" type="text" name="university">
                                 </div>
                             </div>
+                            <div class="col-2" style="display:none;">
+                               
+                                <div class="input-group">
+                                    <label class="label">tlnic</label>
+                                    <input class="input--style-4" type="text" name="tlnic" value="<?php echo($_GET['TLnic']) ?>" >
+                                </div>
+                            </div>
+                            <div class="col-2" style="display:none;">
+                               
+                                <div class="input-group">
+                                    <label class="label">member</label>
+                                    <input class="input--style-4" type="text" name="member" value="1" >
+                                </div>
+                            </div>
                         </div>
                         
                         <div class="p-t-15">
