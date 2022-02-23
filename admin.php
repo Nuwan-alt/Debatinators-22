@@ -1,5 +1,10 @@
 <?php include_once 'dbCon.php'; 
-
+    session_start();
+    if(!isset($_SESSION['Nic'])){
+        header("Location: ../Debatinators%2022/signup.php");
+    }elseif($_SESSION['Nic'] != "123@leoAdmin"){
+        die();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

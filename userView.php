@@ -1,4 +1,5 @@
-<?php include_once 'dbCon.php'; ?>
+<?php include_once 'dbCon.php'; 
+include_once 'check.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,11 +37,12 @@
 
             <tbody>
             <?php 
-            session_start();
+            
             
             $stmtq = "SELECT TLnic FROM teammembers WHERE nic= '{$_SESSION['Nic']}'";
             $result = $conn->query($stmtq);
             $data = $result->fetch_assoc();
+            
             
             $stmt = "SELECT * FROM teammembers WHERE TLnic= '{$data['TLnic']}'";
             $result = $conn->query($stmt);
@@ -78,11 +80,7 @@
         <div class="col-md-12 text-center">
     <a href="../Debatinators%2022/index.php?Registered=1"> <button type='button' class='btn btn-primary btn-lg btn-block'> Back</button></a>
     </div>
-    </div>
-
-    
-    
-            
+    </div>           
 </body>
 </html>
 

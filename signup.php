@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- Design by foolishdeveloper.com -->
-    <title>Glassmorphism login Form Tutorial in html css</title>
+    <title>Sign Up</title>
  
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/notify.css">
     <!--Stylesheet-->
     <style media="screen">
       *,
@@ -139,9 +140,11 @@ button{
 </head>
 <body>
     <div class="background">
+    
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
+    <div class="text-center"> <div id="note" > <b> Notification message  </b> </div></div>
     <form action="upprocess.php" method="POST">
         <h3 style="font-family: 'Redressed', cursive; font-size:40px">Debatinators 22'</h3>
 
@@ -151,8 +154,10 @@ button{
         <label for="password">Natinal Identity Card</label>
         <input type="text" placeholder="NIC" id="nic" name="nic">
 
-        <button name="sighup" type="submit">Log In</button>
+        <button name="signup" type="submit" onclick="return emailVal() && doCalculate()">Log In</button>
         
     </form>
+
+    <script src="./assets/js/notify.js"></script>
 </body>
 </html>

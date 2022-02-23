@@ -1,4 +1,4 @@
-
+<?php include_once"check.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 

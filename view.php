@@ -1,4 +1,6 @@
-<?php include_once 'dbCon.php'; ?>
+<?php include_once 'dbCon.php';
+include_once 'check.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
