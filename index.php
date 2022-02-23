@@ -1,3 +1,14 @@
+<?php 
+    session_start();
+    if(!isset($_GET['Registered'])){
+        header("Location: ../Debatinators%2022/signup.php");
+    }
+    
+
+    if(!isset($_SESSION['Nic'])){
+        header("Location: ../Debatinators%2022/signup.php");
+    }
+?>
 <!DOCTYPE html>
 <!--
 	Be by TEMPLATE STOCK
@@ -183,7 +194,7 @@
 				</h2>
 				</div>
 				<div class="wbox">
-					<strong>sorem ipsum </strong>
+					
 					<p>Leo Club of University of Moratuwa was initiated in July 2003with 38 members as the 2nd university-based Leo Club in SriLanka and the 1st in Leo District 306A2.
 						It marches with themission of creating enthusiastic young leaders throughcommunity service while giving the priority to gain experience. Itcommits to do social services and helps the people who need itthe most. It is an effort to create the future leaders who feelpeople the most. Leo Hiran Keshara is the president of the clubfor the Leoistic year 2021/22. Currently, the club holds amembership of about 100 members. Leo Club of University ofMoratuwa has also been titled as the ‘Most Outstanding Leoclub of Sri Lanka’ in numerous years including Leoistic year2020/21.</p>
 					
@@ -200,7 +211,7 @@
 				</h2>	
 				</div>
 				<div class="wbox">
-					<strong>sorem ipsum </strong>
+					
 					<p>Leo Club of University of Colombo was established on 25thJune, 2015. The pioneers of initiating the club are CharterPresident 2015/16 Leo Nimesh Jayasinghe, CharterSecretary Leo Berney Wickramasinghe & other chartermembers.
 						The Leo Club of University of Colombo encourages youth todevelop leadership qualities by participating in social serviceactivities which is in the path of reaching its pinnacle ofsuccess. We performed multiple number of service projectswith massive phases.
 						Currently Leo Lalanka Samarakoon as the 7th president ofLeo Club of University of Colombo, with his board membersand 191 members are makings their utmost effort to upliftthe value of the club in the Leoism both locally and globally.</p>
@@ -258,7 +269,7 @@
 				   </div>
                   </div> 
 				  <div class="col-xs-12 col-sm-6 col-md-3 wow fadeInUp animated" data-wow-delay=".4s">
-                    <div class="timg"><img src="assets/img/team-img1.jpg"/></div>
+                    <div class="timg"><img src="assets/img/gallery/milan456.jpg"/></div>
 				    <div class="t-box">
 						<h3>MILAN ISHARA</h3>
 						<span>Project Co-Chair</span>
@@ -283,11 +294,11 @@
                 <div class="col-xs-12 col-sm-6 col-md-6">
 
 					<ul class="social-links">
-						<li><a class="wow fadeInUp animated" href="index.html#" style="visibility: visible; animation-name: fadeInUp;"><i class="fa fa-facebook"></i></a></li>
-						<li><a data-wow-delay=".1s" class="wow fadeInUp animated" href="index.html#" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;"><i class="fa fa-twitter"></i></a></li>
-						<li><a data-wow-delay=".2s" class="wow fadeInUp animated" href="index.html#" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;"><i class="fa fa-google-plus"></i></a></li>
-						<li><a data-wow-delay=".4s" class="wow fadeInUp animated" href="index.html#" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;"><i class="fa fa-pinterest"></i></a></li>
-						<li><a data-wow-delay=".5s" class="wow fadeInUp animated" href="index.html#" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;"><i class="fa fa-envelope"></i></a></li>
+						
+						
+						<li><a data-wow-delay=".2s" class="wow fadeInUp animated" href="https://www.facebook.com/search/top?q=leo%20club%20of%20university%20of%20kelaniya" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;"><i class="fa fa-facebook"></i></a></li> <br>
+						<li><a data-wow-delay=".4s" class="wow fadeInUp animated" href="https://www.facebook.com/search/top?q=leo%20club%20of%20university%20of%20moratuwa" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;"><i class="fa fa-facebook"></i></a></li> <br>
+						<li><a data-wow-delay=".5s" class="wow fadeInUp animated" href="https://www.facebook.com/search/top?q=leo%20club%20of%20university%20of%20colombo" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;"><i class="fa fa-facebook"></i></a></li> <br>
 					</ul>
 
                     <p class="copyright">
@@ -298,11 +309,10 @@
 				<div data-wow-delay=".6s" class="col-xs-12 col-sm-6 col-md-6 wow bounceIn  animated" style="visibility: visible; animation-delay: 0.6s; animation-name: bounceIn;">
 
 					  <section class="widget widget_text" id="text-15">
-                         <h3 class="widget-title">California, United States</h3> <div class="textwidget">786, Firs Avenue, The Mall,<br>
-                        <p>Tel: 01 234-56786<br>
-                        Mobile: 01 234-56786<br>
-                        E-mail: <a href="#">info@Be.com</a></p>
-                        <a href="#">Get directions on the map</a> →</div>
+                         <h3 class="widget-title" style="color: black;">Leo Club of University of Kelaniya</h3> 
+                         <h3 class="widget-title" style="color: black;">Leo Club of University of Moratuwa</h3> 
+                         <h3 class="widget-title" style="color: black;">Leo Club of University of Colombo</h3> 
+                        
                     </section>
 
 				</div>
