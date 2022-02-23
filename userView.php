@@ -16,10 +16,11 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <title>Admin</title>
+    <title>Team</title>
 </head>
 <body>
 <h1 class="proname text-center font-weight-bold"> Debatinators 22' </h1>
+<h2 class=" text-center font-weight-bold"> Your Team </h2>
     <div class="container">
         <table class="table table-hover">
         <thead class="thead-dark">
@@ -35,11 +36,18 @@
 
             <tbody>
             <?php 
-            $stmt = "SELECT * FROM teammembers WHERE TLnic= '{$_GET['TLnic']}'";
+            session_start();
+            
+            $stmtq = "SELECT TLnic FROM teammembers WHERE nic= '{$_SESSION['Nic']}'";
+            $result = $conn->query($stmtq);
+            $data = $result->fetch_assoc();
+            
+            $stmt = "SELECT * FROM teammembers WHERE TLnic= '{$data['TLnic']}'";
             $result = $conn->query($stmt);
             if ($result->num_rows > 0) {
                 
                 while($row = $result->fetch_assoc()) {
+                    
                 if($row['TLnic'] == $row['nic']){
                     echo"<tr style='color:green'>";
                     echo"<th scope='row'>". $row['firstName'] .' '.$row['lastname']."(TL)". "</th>";
@@ -68,7 +76,7 @@
             </tbody>
         </table>
         <div class="col-md-12 text-center">
-    <a href="../Debatinators%2022/admin.php"> <button type='button' class='btn btn-primary btn-lg btn-block'> Back</button></a>
+    <a href="../Debatinators%2022/index.php?Registered=1"> <button type='button' class='btn btn-primary btn-lg btn-block'> Back</button></a>
     </div>
     </div>
 

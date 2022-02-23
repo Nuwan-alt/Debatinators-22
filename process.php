@@ -21,16 +21,16 @@
         $stmt->bind_param("sssssssss",$tlnic,$nic,$first_name,$last_name,$birthday,$gender,$email,$phone_number,$university);
         $stmt->execute();
         if($member == 4){
-            header("Location:../Debatinators%2022'/ ");
+            header("Location:../Debatinators%2022/ ");
         }else{
             $direct =$member+1;
-            header("Location: ../Debatinators%2022'/mem"."$direct"."Reg.php?TLnic=$tlnic");
+            header("Location: ../Debatinators%2022/mem"."$direct"."Reg.php?TLnic=$tlnic");
         }
         
     }else{
         $stmt->bind_param("sssssssss",$nic,$nic,$first_name,$last_name,$birthday,$gender,$email,$phone_number,$university);
         $stmt->execute();
-        header("Location: ../Debatinators%2022'/mem1Reg.php?TLnic=$nic");
+        header("Location: ../Debatinators%2022/mem1Reg.php?TLnic=$nic");
     }
     
 

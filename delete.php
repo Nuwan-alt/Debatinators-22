@@ -20,6 +20,7 @@
 </head>
 <body>
 <h1 class="proname text-center font-weight-bold"> Debatinators 22' </h1>
+<h2 class="text-center text-danger font-weight-bold"> Are You Sure? This Team Will Be Deleted. </h2>
     <div class="container">
         <table class="table table-hover">
         <thead class="thead-dark">
@@ -35,6 +36,7 @@
 
             <tbody>
             <?php 
+            
             $stmt = "SELECT * FROM teammembers WHERE TLnic= '{$_GET['TLnic']}'";
             $result = $conn->query($stmt);
             if ($result->num_rows > 0) {
@@ -67,14 +69,16 @@
             ?>
             </tbody>
         </table>
-        <div class="col-md-12 text-center">
-    <a href="../Debatinators%2022/admin.php"> <button type='button' class='btn btn-primary btn-lg btn-block'> Back</button></a>
-    </div>
-    </div>
-
-    
-    
-            
+        
+        <?php
+        echo "<div class='col-md-12 text-center'">
+        $TLnic = $_GET['TLnic'];
+            echo "<a href='delprocess.php?TLnic=$TLnic'><button type='submit' name='del' class='btn btn-danger btn-lg btn-block' > Confirm </button></a> ";
+            echo "<a href='admin.php'><button type='submit' name='del' class='btn btn-info btn-lg btn-block' style='margin-top:10px'> Cancel </button></a> ";
+            echo "</div>";
+        ?>
+        
+    </div>           
 </body>
 </html>
 

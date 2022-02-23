@@ -1,4 +1,6 @@
-<?php include_once 'dbCon.php'; ?>
+<?php include_once 'dbCon.php'; 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,8 +53,8 @@
                     echo"<th scope='row'>". $row['university'] . "</th>";
                     echo"<td>". $row['firstName'] .' '.$row['lastname']. "</td>";
                     echo"<td>". $row['nic'] . "</td>";
-                    echo"<td><button type='button' class='btn btn-danger'> Delete</button></td>";
-                    echo"<td> <a href='{Debatinators%2022'}/view.php/'> <button type='button' class='btn btn-success' type='submit' name='teamView' > View</button></a>  </td>";
+                    echo"<td><a href='../Debatinators%2022/delete.php?TLnic={$row['TLnic']}'><button type='button' class='btn btn-danger'> Delete</button> </a></td>";
+                    echo"<td> <a href='../Debatinators%2022/view.php?TLnic={$row['TLnic']}'> <button type='button' class='btn btn-success' type='submit' name='teamView' > View</button></a>  </td>";
                     
                     echo"</tr>";
                 }
