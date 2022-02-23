@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +33,7 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Registration Form (Team Member 3)</h2>
-                    <form method="POST">
+                    <form method="POST" action="process.php">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -62,11 +63,11 @@
                                     <label class="label">Gender</label>
                                     <div class="p-t-10">
                                         <label class="radio-container m-r-45">Male
-                                            <input type="radio" checked="checked" name="gender">
+                                            <input type="radio" checked="checked" name="gender" value="male">
                                             <span class="checkmark"></span>
                                         </label>
                                         <label class="radio-container">Female
-                                            <input type="radio" name="gender">
+                                            <input type="radio" name="gender" value="female">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -95,16 +96,30 @@
                                 </div>
                             </div>
                             <div class="col-2">
+                               
                                 <div class="input-group">
                                     <label class="label">University</label>
                                     <input class="input--style-4" type="text" name="university">
                                 </div>
-                            
+                            </div>
+                            <div class="col-2" style="display:none;">
+                               
+                                <div class="input-group">
+                                    <label class="label">tlnic</label>
+                                    <input class="input--style-4" type="text" name="tlnic" value="<?php echo($_GET['TLnic']) ?>" >
+                                </div>
+                            </div>
+                            <div class="col-2" style="display:none;">
+                               
+                                <div class="input-group">
+                                    <label class="label">member</label>
+                                    <input class="input--style-4" type="text" name="member" value="3" >
+                                </div>
                             </div>
                         </div>
                         
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Next</button>
+                            <button class="btn btn--radius-2 btn--blue" type="submit" name="submit">Next</button>
                         </div>
                     </form>
                 </div>
@@ -113,14 +128,14 @@
     </div>
 
     <!-- Jquery JS-->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="./vendor/jquery/jquery.min.js"></script>
     <!-- Vendor JS-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <script src="vendor/datepicker/moment.min.js"></script>
-    <script src="vendor/datepicker/daterangepicker.js"></script>
+    <script src="./vendor/select2/select2.min.js"></script>
+    <script src="./vendor/datepicker/moment.min.js"></script>
+    <script src="./vendor/datepicker/daterangepicker.js"></script>
 
     <!-- Main JS-->
-    <script src="js/global.js"></script>
+    <script src="./assets/js/global.js"></script>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 

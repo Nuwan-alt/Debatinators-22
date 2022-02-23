@@ -102,8 +102,11 @@
                     <p class="wow bounceIn animated" data-wow-delay=".60s">"The time for action is now. It's never too late to do something.
 						"</p>
                     <p>
-                        <a class="btn btn-primary btn-lg btn-ornge wow bounceIn animated" data-wow-delay="2s" href="leaderReg.php"><i class="hbtn"></i> <span>Register Now</span></i>
-                        </a>
+                    <?php if($_GET['Registered'] == 1){
+                            echo "<a class='btn btn-primary btn-lg btn-ornge wow bounceIn animated' data-wow-delay='2s' href='userView.php'><i class='hbtn'></i> <span>View Team</span></i></a>";
+                        }else{
+                            echo "<a class='btn btn-primary btn-lg btn-ornge wow bounceIn animated' data-wow-delay='2s' href='leaderReg.php'><i class='hbtn'></i> <span>Register Now</span></i></a>";
+                        } ?>
                     </p>
 					</div>               
 				</div>
@@ -114,9 +117,12 @@
                     <p class="wow bounceIn animated" data-wow-delay=".60s">"Always do your best. What you plant now, you will harvest later."
 						</p>
                     <p>
-                    <a class="btn btn-primary btn-lg btn-ornge wow bounceIn animated" data-wow-delay="2s" href="leaderReg.php"><i class="hbtn"></i> <span>Register Now</span></i>
-                        </a>
-                    </p>
+                    <?php if($_GET['Registered'] == 1){
+                            echo "<a class='btn btn-primary btn-lg btn-ornge wow bounceIn animated' data-wow-delay='2s' href='userView.php'><i class='hbtn'></i> <span>View Team</span></i></a>";
+                        }else{
+                            echo "<a class='btn btn-primary btn-lg btn-ornge wow bounceIn animated' data-wow-delay='2s' href='leaderReg.php'><i class='hbtn'></i> <span>Register Now</span></i></a>";
+                        } 
+                    ?>
 					</div>               
 				</div>
 				</div>				 

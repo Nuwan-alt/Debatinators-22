@@ -1,6 +1,4 @@
-<?php include_once 'dbCon.php'; 
-
-?>
+<?php include_once 'dbCon.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,43 +16,56 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <title>Admin</title>
+    <title>Team</title>
 </head>
 <body>
-
-    <h1 class="proname text-center font-weight-bold"> Debatinators 22' </h1>
+<h1 class="proname text-center font-weight-bold"> Debatinators 22' </h1>
+<h2 class=" text-center font-weight-bold"> Your Team </h2>
     <div class="container">
         <table class="table table-hover">
-            <thead class="thead-dark">
+        <thead class="thead-dark">
                 <tr>
-                    <th scope="col" style='display:none'></th>
+                    <th scope="col"> Name</th>
+                    <th scope="col"> Gender</th>
                     <th scope="col">University</th>
-                    <th scope="col">Team Leader</th>
                     <th scope="col">NIC</th>
-                    <th scope="col">Delete</th>
-                    <th scope="col">View</th>
-
+                    <th scope="col">Email</th>
+                    <th scope="col">Mob Number</th>
                 </tr>
             </thead>
 
-            
-
             <tbody>
-
             <?php 
-            $stmt = "SELECT * FROM teammembers";
+            session_start();
+            
+            $stmtq = "SELECT TLnic FROM teammembers WHERE nic= '{$_SESSION['Nic']}'";
+            $result = $conn->query($stmtq);
+            $data = $result->fetch_assoc();
+            
+            $stmt = "SELECT * FROM teammembers WHERE TLnic= '{$data['TLnic']}'";
             $result = $conn->query($stmt);
             if ($result->num_rows > 0) {
-                // output data of each row
+                
                 while($row = $result->fetch_assoc()) {
+                    
                 if($row['TLnic'] == $row['nic']){
-                    echo"<tr>";
-                    echo"<th scope='row' style='display:none' >". $row['TLnic'] . "</th>";
-                    echo"<th scope='row'>". $row['university'] . "</th>";
-                    echo"<td>". $row['firstName'] .' '.$row['lastname']. "</td>";
+                    echo"<tr style='color:green'>";
+                    echo"<th scope='row'>". $row['firstName'] .' '.$row['lastname']."(TL)". "</th>";
+                    echo"<td>". $row['gender'] . "</td>";
+                    echo"<td>". $row['university'] . "</td>";
                     echo"<td>". $row['nic'] . "</td>";
-                    echo"<td><a href='../Debatinators%2022/delete.php?TLnic={$row['TLnic']}'><button type='button' class='btn btn-danger'> Delete</button> </a></td>";
-                    echo"<td> <a href='../Debatinators%2022/view.php?TLnic={$row['TLnic']}'> <button type='button' class='btn btn-success' type='submit' name='teamView' > View</button></a>  </td>";
+                    echo"<td>". $row['email'] . "</td>";
+                    echo"<td>". $row['phonenumber'] . "</td>";
+                    
+                    echo"</tr>";
+                }else{
+                    echo"<tr >";
+                    echo"<th scope='row'>". $row['firstName'] .' '.$row['lastname']. "</th>";
+                    echo"<td>". $row['gender'] . "</td>";
+                    echo"<td>". $row['university'] . "</td>";
+                    echo"<td>". $row['nic'] . "</td>";
+                    echo"<td>". $row['email'] . "</td>";
+                    echo"<td>". $row['phonenumber'] . "</td>";
                     
                     echo"</tr>";
                 }
@@ -62,9 +73,16 @@
 
              
             ?>
-                
             </tbody>
         </table>
+        <div class="col-md-12 text-center">
+    <a href="../Debatinators%2022/index.php?Registered=1"> <button type='button' class='btn btn-primary btn-lg btn-block'> Back</button></a>
     </div>
+    </div>
+
+    
+    
+            
 </body>
 </html>
+

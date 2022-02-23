@@ -1,6 +1,4 @@
-<?php include_once 'dbCon.php'; 
-
-?>
+<?php include_once 'dbCon.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,40 +19,47 @@
     <title>Admin</title>
 </head>
 <body>
-
-    <h1 class="proname text-center font-weight-bold"> Debatinators 22' </h1>
+<h1 class="proname text-center font-weight-bold"> Debatinators 22' </h1>
+<h2 class="text-center text-danger font-weight-bold"> Are You Sure? This Team Will Be Deleted. </h2>
     <div class="container">
         <table class="table table-hover">
-            <thead class="thead-dark">
+        <thead class="thead-dark">
                 <tr>
-                    <th scope="col" style='display:none'></th>
+                    <th scope="col"> Name</th>
+                    <th scope="col"> Gender</th>
                     <th scope="col">University</th>
-                    <th scope="col">Team Leader</th>
                     <th scope="col">NIC</th>
-                    <th scope="col">Delete</th>
-                    <th scope="col">View</th>
-
+                    <th scope="col">Email</th>
+                    <th scope="col">Mob Number</th>
                 </tr>
             </thead>
 
-            
-
             <tbody>
-
             <?php 
-            $stmt = "SELECT * FROM teammembers";
+            
+            $stmt = "SELECT * FROM teammembers WHERE TLnic= '{$_GET['TLnic']}'";
             $result = $conn->query($stmt);
             if ($result->num_rows > 0) {
-                // output data of each row
+                
                 while($row = $result->fetch_assoc()) {
                 if($row['TLnic'] == $row['nic']){
-                    echo"<tr>";
-                    echo"<th scope='row' style='display:none' >". $row['TLnic'] . "</th>";
-                    echo"<th scope='row'>". $row['university'] . "</th>";
-                    echo"<td>". $row['firstName'] .' '.$row['lastname']. "</td>";
+                    echo"<tr style='color:green'>";
+                    echo"<th scope='row'>". $row['firstName'] .' '.$row['lastname']."(TL)". "</th>";
+                    echo"<td>". $row['gender'] . "</td>";
+                    echo"<td>". $row['university'] . "</td>";
                     echo"<td>". $row['nic'] . "</td>";
-                    echo"<td><a href='../Debatinators%2022/delete.php?TLnic={$row['TLnic']}'><button type='button' class='btn btn-danger'> Delete</button> </a></td>";
-                    echo"<td> <a href='../Debatinators%2022/view.php?TLnic={$row['TLnic']}'> <button type='button' class='btn btn-success' type='submit' name='teamView' > View</button></a>  </td>";
+                    echo"<td>". $row['email'] . "</td>";
+                    echo"<td>". $row['phonenumber'] . "</td>";
+                    
+                    echo"</tr>";
+                }else{
+                    echo"<tr >";
+                    echo"<th scope='row'>". $row['firstName'] .' '.$row['lastname']. "</th>";
+                    echo"<td>". $row['gender'] . "</td>";
+                    echo"<td>". $row['university'] . "</td>";
+                    echo"<td>". $row['nic'] . "</td>";
+                    echo"<td>". $row['email'] . "</td>";
+                    echo"<td>". $row['phonenumber'] . "</td>";
                     
                     echo"</tr>";
                 }
@@ -62,9 +67,18 @@
 
              
             ?>
-                
             </tbody>
         </table>
-    </div>
+        
+        <?php
+        echo "<div class='col-md-12 text-center'">
+        $TLnic = $_GET['TLnic'];
+            echo "<a href='delprocess.php?TLnic=$TLnic'><button type='submit' name='del' class='btn btn-danger btn-lg btn-block' > Confirm </button></a> ";
+            echo "<a href='admin.php'><button type='submit' name='del' class='btn btn-info btn-lg btn-block' style='margin-top:10px'> Cancel </button></a> ";
+            echo "</div>";
+        ?>
+        
+    </div>           
 </body>
 </html>
+
